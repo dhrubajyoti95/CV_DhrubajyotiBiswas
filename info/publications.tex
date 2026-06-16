@@ -1,16 +1,17 @@
-\secHeader{Publications}
+\secHeader{Research Output}
 
 \nocite{*}
-\noindent {\normalsize \textsc{Journal Articles.}}
-\printbibliography[type=article, title=Articles, heading=none,resetnumbers]
 
-\noindent {\normalsize \textsc{Conference Proceedings.}}
-\printbibliography[type=inproceedings, title=Conference Proceedings, heading=none, resetnumbers]
-
-\defbibfilter{others}{
-  type=thesis or
-  type=unpublished
+\defbibfilter{pub}{
+  type=article or
+  type=inproceedings
 }
 
-\noindent {\normalsize \textsc{Submitted/Under-review.}}
-\printbibliography[filter=others, heading=none, resetnumbers]
+\noindent {\normalsize \textit{Journal articles/Conference proceedings:}}
+\printbibliography[filter=pub, heading=none, resetnumbers]
+
+% \noindent {\normalsize \textsc{Conference Proceedings:}}
+% \printbibliography[type=inproceedings, title=Conference Proceedings, heading=none, resetnumbers]
+
+\noindent {\normalsize \textit{Submitted/Under-review/Pre-prints:}}
+\printbibliography[type=unpublished, heading=none, resetnumbers]
