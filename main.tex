@@ -1,14 +1,14 @@
 %-----------------------------------------------%
 % A simple template for academic CVs            %
 % By Dhrubajyoti Biswas                         %
-% Email: dhrubajyotibiswas95@gmail.com                %
+% Email: dhrubajyoti98@gmail.com                %
 % Please feel free to re-use.                   %
 %-----------------------------------------------%
 
 \documentclass[10pt,a4paper]{article}
 \usepackage[verbose]{hyperref}
 \hypersetup{colorlinks = true,urlcolor = black}
-\usepackage[left=10mm,right=10mm,bottom=8.25mm,top=12.5mm]{geometry}
+\usepackage[left=9mm,right=9mm,bottom=8mm,top=12mm]{geometry}
 
 
 \usepackage{fontawesome}
@@ -19,7 +19,7 @@
 \usepackage{tikz}
 \usepackage[official]{eurosym}
 \usepackage{tfrupee}
-
+\usepackage{ragged2e}
 \usepackage{longtable}
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
@@ -33,6 +33,9 @@
 \setlength\leftmargin{5cm}
 % \AtBeginBibliography{\setlength{\labelsep}{1mm}}
 
+\DeclareFieldFormat{labelnumber}{%
+  \ifnumcomp{#1}{<}{10}{0#1}{#1}%
+}
 
 
 \newcommand{\secHeader}[1]{\vspace{0.25em} \noindent{\large \textsc{#1}\vspace{-0.55em}
@@ -62,7 +65,7 @@ Theoretical physicist working on nonlinear dynamical systems, complex networks, 
 
 %------------------------------------------------------%
 \faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com}\ \big|\ 
-\faPhoneSquare\ \href{tel:+919836705913}{(+91)-9836705913}\ \big|\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in}
+\faPhoneSquare\ \href{tel:+919836705913}{(+91)-9836705913}\ \big|\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in}\ \big| \aiOrcidSquare\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546}
 \end{center}
 %-------------------Main Body of the CV-----------------------%
 \input{info/experience}
@@ -79,20 +82,10 @@ Theoretical physicist working on nonlinear dynamical systems, complex networks, 
 
 %\input{extras/references}
 
-\vspace{0.5cm}
-
-\begin{center}
-    --- Last updated on \today\ ---
-\end{center}
 \vfill
 
-
-
 \noindent
-$^\ddagger$Not availed.
-
-\noindent
-$^{\dagger}$Scores reported as on transcripts/calculated using existing norms.
+$^\ddagger$Not availed.\hfill Updated: \today
 
 
 
