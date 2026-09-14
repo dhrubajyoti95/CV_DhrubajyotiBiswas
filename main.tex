@@ -5,10 +5,10 @@
 % Please feel free to re-use.                   %
 %-----------------------------------------------%
 
-\documentclass[10pt,a4paper]{article}
+\documentclass[9pt,a4paper]{extarticle}
 \usepackage[verbose]{hyperref}
 \hypersetup{colorlinks = true,urlcolor = black}
-\usepackage[left=9mm,right=9mm,bottom=8mm,top=12mm]{geometry}
+\usepackage[left=9mm,right=9mm,bottom=7mm,top=12mm]{geometry}
 
 
 \usepackage{fontawesome}
@@ -19,6 +19,7 @@
 \usepackage{tikz}
 \usepackage[official]{eurosym}
 \usepackage{tfrupee}
+\usepackage{mdframed}
 \usepackage{ragged2e}
 \usepackage{longtable}
 \setlength{\LTpre}{0pt}
@@ -52,21 +53,29 @@
 \fancyfoot{}
 \fancyhead{}
 
+
+\definecolor{mygray2}{rgb}{0.3, 0.3, 0.3}
+
+
 \begin{document}
 
 
 \begin{center}
-\LARGE --- \textsc{Dhrubajyoti Biswas} --- \normalsize
+\LARGE --- \textsc{DHRUBAJYOTI BISWAS} --- \normalsize
 
 \vspace{0.15em}
 %------------------------------------------------------%
-Theoretical physicist working on nonlinear dynamical systems, complex networks, and computational science
+\textcolor{mygray2}{Theoretical physicist working on nonlinear dynamical systems, complex networks, and computational science}
 \vspace{0.15em}
 
 %------------------------------------------------------%
-\faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com}\ \big|\ 
-\faPhoneSquare\ \href{tel:+919836705913}{(+91)-9836705913}\ \big|\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in}\ \big| \aiOrcidSquare\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546}
+[ \faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com}\ \big|\ 
+\faPhoneSquare\ \href{tel:+919836705913}{(+91)-9836705913}\ \big|\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in}\ \big| \aiOrcidSquare\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546} ]
 \end{center}
+
+
+
+
 %-------------------Main Body of the CV-----------------------%
 \input{info/experience}
 
@@ -76,16 +85,25 @@ Theoretical physicist working on nonlinear dynamical systems, complex networks, 
 
 \input{info/conf_workshops_talks}
 
+\input{info/teaching}
+
 \input{info/skills}
 
 \input{info/others}
 
 %\input{extras/references}
 
+
+\begin{center}
+--- Last updated: \today\ ---
+\end{center}
+
+
+
 \vfill
 
 \noindent
-*Upcoming, $^\dagger$Not availed.\hfill Updated: \today
+*Upcoming, $^\dagger$Not availed.
 
 
 
