@@ -6,10 +6,10 @@
 %-----------------------------------------------%
 
 \documentclass[9pt,a4paper]{extarticle}
-\usepackage[verbose]{hyperref}
-\hypersetup{colorlinks = true,urlcolor = black}
-\usepackage[left=9mm,right=9mm,bottom=7mm,top=12mm]{geometry}
-
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks = false,urlcolor = black}
+\usepackage[left=9mm,right=9mm,bottom=15mm,top=12mm]{geometry}
+\urlstyle{same}
 
 \usepackage{fontawesome}
 \usepackage{academicons}
@@ -24,7 +24,7 @@
 \usepackage{longtable}
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
-
+\usepackage{lastpage}
 
 
 \usepackage[sorting=ydnt,defernumbers]{biblatex}
@@ -32,12 +32,24 @@
 \addbibresource{mypapers.bib}
 \setlength\bibitemsep{1\itemsep}
 \setlength\leftmargin{5cm}
-% \AtBeginBibliography{\setlength{\labelsep}{1mm}}
+
+\definecolor{mygray2}{rgb}{0.3, 0.3, 0.3}
+\definecolor{footgray}{rgb}{0.7, 0.7, 0.7}
+
 
 \DeclareFieldFormat{labelnumber}{%
   \ifnumcomp{#1}{<}{10}{0#1}{#1}%
 }
+\DeclareFieldFormat[article]{journaltitle}{\color{teal}{#1}}
+\DeclareFieldFormat[article]{volume}{\color{teal}{#1}}
+\DeclareFieldFormat[article]{number}{\color{teal}{#1}}
+\DeclareFieldFormat[article]{doi}{ \color{doiblue}{\faExternalLink\ #1}}
 
+\DeclareFieldFormat[inproceedings]{booktitle}{\color{teal}{#1}}
+\DeclareFieldFormat[inproceedings]{doi}{\color{doiblue}{\faExternalLink\ #1}}
+
+\DeclareFieldFormat[thesis]{note}{\color{teal}{#1}}
+\DeclareFieldFormat[thesis]{doi}{\color{doiblue}{\faExternalLink\ #1}}
 
 \newcommand{\secHeader}[1]{\vspace{0.25em} \noindent{\large \textsc{#1}\vspace{-0.55em}
 
@@ -52,16 +64,18 @@
 \pagestyle{fancy}
 \fancyfoot{}
 \fancyhead{}
+\fancyfoot[L]{\textcolor{footgray}{*Upcoming, $^\dagger$Not availed.}}
+\fancyfoot[C]{\textcolor{footgray}{Curriculum Vitae | Page \thepage/\pageref{LastPage}}}
+\fancyfoot[R]{\textcolor{footgray}{Updated: \today}}
 
 
-\definecolor{mygray2}{rgb}{0.3, 0.3, 0.3}
 
 
 \begin{document}
 
 
 \begin{center}
-\LARGE --- \textsc{DHRUBAJYOTI BISWAS} --- \normalsize
+\huge --- \textsc{Dhrubajyoti Biswas} --- \normalsize
 
 \vspace{0.15em}
 %------------------------------------------------------%
@@ -77,6 +91,8 @@
 
 
 %-------------------Main Body of the CV-----------------------%
+\definecolor{mentors}{RGB}{103, 39, 103}
+
 \input{info/experience}
 
 \input{info/education}
@@ -94,16 +110,12 @@
 %\input{extras/references}
 
 
-\begin{center}
---- Last updated: \today\ ---
-\end{center}
-
 
 
 \vfill
 
 \noindent
-*Upcoming, $^\dagger$Not availed.
+
 
 
 
