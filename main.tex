@@ -6,11 +6,8 @@
 %-----------------------------------------------%
 
 \documentclass[9pt,a4paper]{extarticle}
-\usepackage[hidelinks]{hyperref}
-\hypersetup{colorlinks = false,urlcolor = black}
-\usepackage[left=9mm,right=9mm,bottom=15mm,top=12mm]{geometry}
-\urlstyle{same}
 
+\usepackage[left=9mm,right=9mm,bottom=15mm,top=13mm]{geometry}
 \usepackage{fontawesome}
 \usepackage{academicons}
 \usepackage{enumitem}
@@ -26,72 +23,81 @@
 \setlength{\LTpost}{0pt}
 \usepackage{lastpage}
 
-
-\usepackage[sorting=ydnt,defernumbers]{biblatex}
+\usepackage{changepage}
+\usepackage[sorting=ydnt,defernumbers,doi=true]{biblatex}
 \renewbibmacro{in:}{}
 \addbibresource{mypapers.bib}
 \setlength\bibitemsep{1\itemsep}
 \setlength\leftmargin{5cm}
+\setlength{\labelnumberwidth}{4.2mm}
 
-\definecolor{mygray2}{rgb}{0.3, 0.3, 0.3}
+\definecolor{mygray2}{rgb}{0.4, 0.4, 0.4}
 \definecolor{footgray}{rgb}{0.7, 0.7, 0.7}
-
+\definecolor{linkblue}{RGB}{50, 100, 200}
+\definecolor{papertitlegreen}{RGB}{7,100,80}
+\definecolor{mentors}{RGB}{150, 50, 100}
 
 \DeclareFieldFormat{labelnumber}{%
   \ifnumcomp{#1}{<}{10}{0#1}{#1}%
 }
-\DeclareFieldFormat[article]{journaltitle}{\color{teal}{#1}}
-\DeclareFieldFormat[article]{volume}{\color{teal}{#1}}
-\DeclareFieldFormat[article]{number}{\color{teal}{#1}}
-\DeclareFieldFormat[article]{doi}{ \color{doiblue}{\faExternalLink\ #1}}
 
-\DeclareFieldFormat[inproceedings]{booktitle}{\color{teal}{#1}}
-\DeclareFieldFormat[inproceedings]{doi}{\color{doiblue}{\faExternalLink\ #1}}
 
-\DeclareFieldFormat[thesis]{note}{\color{teal}{#1}}
-\DeclareFieldFormat[thesis]{doi}{\color{doiblue}{\faExternalLink\ #1}}
+
+\DeclareFieldFormat[article]{journaltitle}{\color{papertitlegreen}{#1}}
+\DeclareFieldFormat[article]{volume}{\color{papertitlegreen}{#1}}
+\DeclareFieldFormat[article]{number}{\color{papertitlegreen}{#1}}
+\DeclareFieldFormat[article]{doi}{\color{linkblue}{\href{https://#1}{\aiDoi\ #1}}}
+
+\DeclareFieldFormat[inproceedings]{booktitle}{\color{papertitlegreen}{#1}}
+\DeclareFieldFormat[inproceedings]{doi}{\color{linkblue}{\href{https://#1}{\aiDoi\ #1}}}
+
+\DeclareFieldFormat[thesis]{note}{\color{papertitlegreen}{#1}}
+\DeclareFieldFormat[thesis]{doi}{\color{linkblue}{\href{https://#1}{\faExternalLink\ #1}}}
 
 \newcommand{\secHeader}[1]{\vspace{0.25em} \noindent{\large \textsc{#1}\vspace{-0.55em}
 
 \noindent
 \begin{tikzpicture}
-\draw[color=black, line width=0.4mm] (0,1) -- (0.995\textwidth,1);
+\draw[shading=axis, left color=black, right color=red, line width=0.4mm] (0,1) -- (0.99\textwidth,1);
 \end{tikzpicture}}\vspace{0.3em}
 }
 
 \usepackage{fancyhdr}
 \renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 \pagestyle{fancy}
 \fancyfoot{}
 \fancyhead{}
-\fancyfoot[L]{\textcolor{footgray}{*Upcoming, $^\dagger$Not availed.}}
+\fancyfoot[L]{\textcolor{footgray}{*Upcoming\ $^\dagger$Not availed}}
 \fancyfoot[C]{\textcolor{footgray}{Curriculum Vitae | Page \thepage/\pageref{LastPage}}}
-\fancyfoot[R]{\textcolor{footgray}{Updated: \today}}
+\fancyfoot[R]{\textcolor{footgray}{Updated -- \today}}
 
 
-
+\usepackage[hidelinks]{hyperref}
+\hypersetup{colorlinks = false,urlcolor = black}
+\urlstyle{same}
 
 \begin{document}
 
 
 \begin{center}
-\huge --- \textsc{Dhrubajyoti Biswas} --- \normalsize
+\huge --- \textsc{Dhrubajyoti Biswas, PhD, MInstP} --- \normalsize
+\vspace{0.3em}
 
-\vspace{0.15em}
-%------------------------------------------------------%
-\textcolor{mygray2}{Theoretical physicist working on nonlinear dynamical systems, complex networks, and computational science}
-\vspace{0.15em}
 
-%------------------------------------------------------%
-[ \faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com}\ \big|\ 
-\faPhoneSquare\ \href{tel:+919836705913}{(+91)-9836705913}\ \big|\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in}\ \big| \aiOrcidSquare\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546} ]
+\textcolor{mygray2}{Postdoctoral Fellow at IIT Kharagpur, working on dynamical systems, complex networks, and computational science}
+\vspace{0.3em}
+
+
+\color{linkblue}{\faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com}\ \big|\ 
+\faPhoneSquare\ \href{tel:+919836705913}{+91-9836705913}\ \big|\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in}\ \big| \aiOrcidSquare\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546}}
 \end{center}
 
 
 
 
 %-------------------Main Body of the CV-----------------------%
-\definecolor{mentors}{RGB}{103, 39, 103}
+
 
 \input{info/experience}
 
