@@ -7,7 +7,7 @@
 
 \documentclass[9pt,a4paper]{extarticle}
 
-\usepackage[left=9mm,right=9mm,bottom=15mm,top=13mm]{geometry}
+\usepackage[left=9mm,right=9mm,bottom=15mm,top=12mm]{geometry}
 \usepackage{fontawesome}
 \usepackage{academicons}
 \usepackage{enumitem}
@@ -17,11 +17,15 @@
 \usepackage[official]{eurosym}
 \usepackage{tfrupee}
 \usepackage{mdframed}
+\usepackage{amssymb}
 \usepackage{ragged2e}
 \usepackage{longtable}
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
 \usepackage{lastpage}
+
+\usepackage{datetime}
+\newdateformat{shortnewdate}{\shortmonthname[\THEMONTH]. \THEDAY, \THEYEAR}
 
 \usepackage{changepage}
 \usepackage[sorting=ydnt,defernumbers,doi=true]{biblatex}
@@ -33,28 +37,36 @@
 
 \definecolor{mygray2}{rgb}{0.4, 0.4, 0.4}
 \definecolor{footgray}{rgb}{0.7, 0.7, 0.7}
-\definecolor{linkblue}{RGB}{50, 100, 200}
-\definecolor{papertitlegreen}{RGB}{7,100,80}
-\definecolor{mentors}{RGB}{150, 50, 100}
+\definecolor{linkblue}{HTML}{0B3D91}
+\definecolor{papertitle}{RGB}{7,100,80}
+\definecolor{conftitle}{HTML}{954535}
+\definecolor{mentors}{RGB}{167, 50, 152}
+\definecolor{thesistitle}{HTML}{5D3FD3}
+\definecolor{openaccess}{HTML}{97DC21}
 
 \DeclareFieldFormat{labelnumber}{%
   \ifnumcomp{#1}{<}{10}{0#1}{#1}%
 }
 
+% Formatting arxiv/unpublished references
+\DeclareFieldFormat[unpublished]{doi}{\color{linkblue}{\href{#1}{\faExternalLinkSquare\ #1}}\nopunct}
 
+% Formatting journal published references
+\DeclareFieldFormat[article]{journaltitle}{\color{papertitle}{#1}}
+\DeclareFieldFormat[article]{volume}{\color{papertitle}{#1}}
+\DeclareFieldFormat[article]{number}{\color{papertitle}{#1}}
+\DeclareFieldFormat[article]{doi}{\color{linkblue}{\href{https://doi.org/#1}{\aiDoi\ #1}}\nopunct}
+\DeclareFieldFormat[article]{addendum}{\textcolor{openaccess}{#1}\nopunct}
 
-\DeclareFieldFormat[article]{journaltitle}{\color{papertitlegreen}{#1}}
-\DeclareFieldFormat[article]{volume}{\color{papertitlegreen}{#1}}
-\DeclareFieldFormat[article]{number}{\color{papertitlegreen}{#1}}
-\DeclareFieldFormat[article]{doi}{\color{linkblue}{\href{https://#1}{\aiDoi\ #1}}}
+% Formatting conference published references
+\DeclareFieldFormat[inproceedings]{booktitle}{\color{conftitle}{#1}}
+\DeclareFieldFormat[inproceedings]{doi}{\color{linkblue}{\href{https://doi.org/#1}{\aiDoi\ #1}}\nopunct}
 
-\DeclareFieldFormat[inproceedings]{booktitle}{\color{papertitlegreen}{#1}}
-\DeclareFieldFormat[inproceedings]{doi}{\color{linkblue}{\href{https://#1}{\aiDoi\ #1}}}
+% Formatting thesis
+\DeclareFieldFormat[thesis]{note}{\color{black}{#1}}
+\DeclareFieldFormat[thesis]{doi}{\color{linkblue}{\href{https://#1}{\faExternalLinkSquare\ #1}}\nopunct}
 
-\DeclareFieldFormat[thesis]{note}{\color{papertitlegreen}{#1}}
-\DeclareFieldFormat[thesis]{doi}{\color{linkblue}{\href{https://#1}{\faExternalLink\ #1}}}
-
-\newcommand{\secHeader}[1]{\vspace{0.25em} \noindent{\large \textsc{#1}\vspace{-0.55em}
+\newcommand{\secHeader}[1]{\vspace{0.25em} \noindent{\Large \textsc{#1}\vspace{-0.55em}
 
 \noindent
 \begin{tikzpicture}
@@ -69,8 +81,8 @@
 \fancyfoot{}
 \fancyhead{}
 \fancyfoot[L]{\textcolor{footgray}{*Upcoming\ $^\dagger$Not availed}}
-\fancyfoot[C]{\textcolor{footgray}{Curriculum Vitae | Page \thepage/\pageref{LastPage}}}
-\fancyfoot[R]{\textcolor{footgray}{Updated -- \today}}
+\fancyfoot[R]{\textcolor{footgray}{Curriculum Vitae \big| \shortnewdate\today\ \big| Page \thepage/\pageref{LastPage}}}
+%\fancyfoot[R]{\textcolor{footgray}{Updated -- \today}}
 
 
 \usepackage[hidelinks]{hyperref}
@@ -81,23 +93,23 @@
 
 
 \begin{center}
-\huge --- \textsc{Dhrubajyoti Biswas, PhD, MInstP} --- \normalsize
-\vspace{0.3em}
+\Huge \textsc{Dhrubajyoti Biswas, PhD, MInstP}\normalsize
+\vspace{0.2em}
 
 
-\textcolor{mygray2}{Postdoctoral Fellow at IIT Kharagpur, working on dynamical systems, complex networks, and computational science}
-\vspace{0.3em}
+\textcolor{mygray2}{\large Postdoctoral Fellow at IIT Kharagpur, working on dynamical systems, complex networks, and computational science}
+\vspace{0.25em}
 
 
-\color{linkblue}{\faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com}\ \big|\ 
-\faPhoneSquare\ \href{tel:+919836705913}{+91-9836705913}\ \big|\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in}\ \big| \aiOrcidSquare\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546}}
+\color{linkblue}{\faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com} \big |\ 
+\faPhoneSquare\ \href{tel:+919836705913}{+91-9836705913} \big |\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in} \big |\ \aiOrcid\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546}}
 \end{center}
 
 
 
 
 %-------------------Main Body of the CV-----------------------%
-
+ \normalsize
 
 \input{info/experience}
 
