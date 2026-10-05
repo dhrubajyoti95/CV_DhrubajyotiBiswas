@@ -7,7 +7,17 @@
 
 \documentclass[9pt,a4paper]{extarticle}
 
-\usepackage[left=9mm,right=9mm,bottom=15mm,top=12mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Libron}[
+    Path = extras/fonts/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic
+]
+
+\usepackage[left=9mm,right=9mm,bottom=14mm,top=12mm]{geometry}
 \usepackage{fontawesome}
 \usepackage{academicons}
 \usepackage{enumitem}
@@ -33,7 +43,7 @@
 \addbibresource{mypapers.bib}
 \setlength\bibitemsep{1\itemsep}
 \setlength\leftmargin{5cm}
-\setlength{\labelnumberwidth}{4.2mm}
+\setlength{\labelnumberwidth}{0mm}
 
 \definecolor{mygray2}{rgb}{0.4, 0.4, 0.4}
 \definecolor{footgray}{rgb}{0.7, 0.7, 0.7}
@@ -55,16 +65,16 @@
 \DeclareFieldFormat[article]{journaltitle}{\color{papertitle}{#1}}
 \DeclareFieldFormat[article]{volume}{\color{papertitle}{#1}}
 \DeclareFieldFormat[article]{number}{\color{papertitle}{#1}}
-\DeclareFieldFormat[article]{doi}{\color{linkblue}{\href{https://doi.org/#1}{\aiDoi\ #1}}\nopunct}
+\DeclareFieldFormat[article]{doi}{\color{linkblue}{\href{https://doi.org/#1}{\aiDoi #1}}\nopunct}
 \DeclareFieldFormat[article]{addendum}{\textcolor{openaccess}{#1}\nopunct}
 
 % Formatting conference published references
 \DeclareFieldFormat[inproceedings]{booktitle}{\color{conftitle}{#1}}
-\DeclareFieldFormat[inproceedings]{doi}{\color{linkblue}{\href{https://doi.org/#1}{\aiDoi\ #1}}\nopunct}
+\DeclareFieldFormat[inproceedings]{doi}{\color{linkblue}{\href{https://doi.org/#1}{\aiDoi #1}}\nopunct}
 
 % Formatting thesis
 \DeclareFieldFormat[thesis]{note}{\color{black}{#1}}
-\DeclareFieldFormat[thesis]{doi}{\color{linkblue}{\href{https://#1}{\faExternalLinkSquare\ #1}}\nopunct}
+\DeclareFieldFormat[thesis]{doi}{\color{linkblue}{\href{https://#1}{\faGlobe #1}}\nopunct}
 
 \newcommand{\secHeader}[1]{\vspace{0.25em} \noindent{\Large \textsc{#1}\vspace{-0.55em}
 
@@ -76,7 +86,11 @@
 
 \usepackage{fancyhdr}
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\let\OldFootRule\footrule
+\renewcommand{\footrule}{\textcolor{footgray}{\OldFootRule}}
+
 \pagestyle{fancy}
 \fancyfoot{}
 \fancyhead{}
@@ -91,18 +105,20 @@
 
 \begin{document}
 
+\sloppy
 
 \begin{center}
-\Huge \textsc{Dhrubajyoti Biswas, PhD, MInstP}\normalsize
+
+\Huge --- {Dhrubajyoti Biswas, PhD, MInstP} --- \normalsize
 \vspace{0.2em}
 
 
-\textcolor{mygray2}{\large Postdoctoral Fellow at IIT Kharagpur, working on dynamical systems, complex networks, and computational science}
+\textcolor{mygray2}{\large Postdoctoral Fellow at IIT Kharagpur $\bullet$ Working on complex dynamical systems and computational science}
 \vspace{0.25em}
 
 
-\color{linkblue}{\faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com} \big |\ 
-\faPhoneSquare\ \href{tel:+919836705913}{+91-9836705913} \big |\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in} \big |\ \aiOrcid\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546}}
+\color{linkblue}{\big[ \faEnvelope\ \href{mailto:dhrubajyoti98@gmail.com}{dhrubajyoti98@gmail.com} \big |\ 
+\faPhoneSquare\ \href{tel:+919836705913}{+91-9836705913} \big |\ \faGlobe\ \href{https://dhrubajyotibiswas.in}{https://dhrubajyotibiswas.in} \big |\ \aiOrcid\ \href{https://orcid.org/my-orcid?orcid=0000-0002-4474-2546}{0000-0002-4474-2546} \big]}
 \end{center}
 
 
